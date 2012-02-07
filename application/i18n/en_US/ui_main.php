@@ -123,7 +123,7 @@
 	'delete_spam' => 'Delete Spam',
 	'demo' => 'Demo',
 	'description' => 'Description',
-	'detailed_location_example' => 'Example: Corner of City Market, 5th Street & 4th Avenue, Johannesburg',
+	'detailed_location_example' => 'Example: Corner of Queen St and Yonge St, Toronto, Ontario',
 	'details' => 'Details',
 	'direct_report' => 'Direct Report',
 	'disabled' => 'Disabled',
