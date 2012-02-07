@@ -178,6 +178,7 @@
 								<li><a href="#" class="btn_clear"><?php echo strtoupper(Kohana::lang('ui_main.clear_map'));?></a></li>
 							</ul>
 						</div>
+						<span class="default_field_highlight" style="font-size: 11pt; font-weight: bold; color: black;">(Required)</span>
 						<div style="clear:both;"></div>
 						<?php print form::input('location_find', '', ' title="'.Kohana::lang('ui_main.location_example').'" class="findtext"'); ?>
 						<div style="float:left;margin:9px 0 0 5px;"><input type="button" name="button" id="button" value="<?php echo Kohana::lang('ui_main.find_location'); ?>" class="btn_find" /></div>
