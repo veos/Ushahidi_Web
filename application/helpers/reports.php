@@ -82,7 +82,7 @@ class reports_Core {
 		}
 
 		// Validate only the fields that are filled in
-		if ( ! empty($post->incident_video))
+		/*if ( ! empty($post->incident_video))
 		{
 			foreach ($post->incident_video as $key => $url) 
 			{
@@ -91,7 +91,7 @@ class reports_Core {
 					$post->add_error('incident_video','url');
 				}
 			}
-		}
+		}*/
 		
 		// If deployment is a single country deployment, check that the location mapped is in the default country
 		if ( ! Kohana::config('settings.multi_country'))
@@ -431,7 +431,7 @@ class reports_Core {
 		} */
 
 		// b. Video
-		foreach ($post->incident_video as $item)
+		/*foreach ($post->incident_video as $item)
 		{
 			if ( ! empty($item))
 			{
@@ -443,7 +443,7 @@ class reports_Core {
 				$video->media_date = date("Y-m-d H:i:s",time());
 				$video->save();
 			}
-		}
+		}*/
 
 		// c. Photos
 		$filenames = upload::save('incident_photo');

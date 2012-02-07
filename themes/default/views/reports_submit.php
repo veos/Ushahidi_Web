@@ -231,6 +231,7 @@
 
 
 				<!-- Video Fields -->
+				<!--
 				<div id="divVideo" class="report_row">
 					<h4><?php echo Kohana::lang('ui_main.external_video_link'); ?></h4>
 					<?php
@@ -266,6 +267,7 @@
 						print "<input type=\"hidden\" name=\"$this_startid\" value=\"$i\" id=\"$this_startid\">";
 					?>
 				</div>
+				-->
 				
 				<?php Event::run('ushahidi_action.report_form_after_video_link'); ?>
 

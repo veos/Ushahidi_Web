@@ -304,6 +304,7 @@
 							-->
 
 							<!-- Video Fields -->
+							<!--
 							<div class="row link-row">
 								<h4><?php echo Kohana::lang('ui_main.external_video_link');?></h4>
 							</div>
@@ -349,7 +350,7 @@
 							</div>
 							
 							<?php Event::run('ushahidi_action.report_form_admin_after_video_link', $id); ?>
-
+                            -->
 							<!-- Photo Fields -->
 							<div class="row link-row">
 								<h4><?php echo Kohana::lang('ui_main.reports_photos');?></h4>
