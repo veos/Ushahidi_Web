@@ -1316,6 +1316,9 @@ a.rem { background:url(../images/icon-minus.gif) no-repeat;}
     font-size:90%;
     color:#666;
 }
+.report-find-location .btns {
+    display:none;
+}
 .report-find-location input.findtext {
     margin-top:9px;
     padding:5px 3px 0 3px;
