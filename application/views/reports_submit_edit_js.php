@@ -142,12 +142,12 @@
 			
 			
 			// Drag Control
-			/*var drag = new OpenLayers.Control.DragFeature(vlayer, {
+			var drag = new OpenLayers.Control.DragFeature(vlayer, {
 				onStart: startDrag,
 				onDrag: doDrag,
 				onComplete: endDrag
 			});
-			map.addControl(drag);*/
+			map.addControl(drag);
 			
 			// Vector Layer Events
 			vlayer.events.on({
@@ -195,10 +195,10 @@
 			{
 				?>
 				// Default Point
-				/*point = new OpenLayers.Geometry.Point(<?php echo $longitude; ?>, <?php echo $latitude; ?>);
+				point = new OpenLayers.Geometry.Point(<?php echo $longitude; ?>, <?php echo $latitude; ?>);
 				OpenLayers.Projection.transform(point, proj_4326, map.getProjectionObject());
 				var origFeature = new OpenLayers.Feature.Vector(point);
-				vlayer.addFeatures(origFeature);*/
+				vlayer.addFeatures(origFeature);
 				<?php
 			}
 			else
@@ -234,7 +234,7 @@
 			);
 			map.addControl(panel);
 			panel.activateControl(panel.controls[0]);
-			//drag.activate();
+			drag.activate();
 			highlightCtrl.activate();
 			selectCtrl.activate();
 			
@@ -264,7 +264,7 @@
 				selectCtrl.activate();
 			});
 			
-						// Clear Map
+			// Clear Map
 			$('.btn_clear').live('click', function () {
 				vlayer.removeFeatures(vlayer.features);
 				$('input[name="geometry[]"]').remove();
