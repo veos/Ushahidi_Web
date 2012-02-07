@@ -65,7 +65,7 @@
 	),
 	'incident_title' => array(
 		'length' => 'The title field must be at least 3 and no more 200 characters long.',
-		'required' => 'The title field is required.',
+		'required' => 'The report title field is required.',
 	),
 	'incident_verified' => array(
 		'between' => 'Please enter a valid value for Verify This Report',
