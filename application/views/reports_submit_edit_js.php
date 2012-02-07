@@ -142,12 +142,12 @@
 			
 			
 			// Drag Control
-			var drag = new OpenLayers.Control.DragFeature(vlayer, {
+			/*var drag = new OpenLayers.Control.DragFeature(vlayer, {
 				onStart: startDrag,
 				onDrag: doDrag,
 				onComplete: endDrag
 			});
-			map.addControl(drag);
+			map.addControl(drag);*/
 			
 			// Vector Layer Events
 			vlayer.events.on({
@@ -234,7 +234,7 @@
 			);
 			map.addControl(panel);
 			panel.activateControl(panel.controls[0]);
-			drag.activate();
+			//drag.activate();
 			highlightCtrl.activate();
 			selectCtrl.activate();
 			
