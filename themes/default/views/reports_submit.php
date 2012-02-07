@@ -192,6 +192,7 @@
 				</div>
 
 				<!-- News Fields -->
+				<!--
 				<div id="divNews" class="report_row">
 					<h4><?php echo Kohana::lang('ui_main.reports_news'); ?></h4>
 					<?php
@@ -226,6 +227,7 @@
 					print "<input type=\"hidden\" name=\"$this_startid\" value=\"$i\" id=\"$this_startid\">";
 				?>
 				</div>
+				-->
 
 
 				<!-- Video Fields -->

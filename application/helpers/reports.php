@@ -416,7 +416,7 @@ class reports_Core {
 		ORM::factory('media')->where('incident_id',$incident->id)->where('media_type <> 1')->delete_all();
 		
 		// a. News
-		foreach ($post->incident_news as $item)
+/*		foreach ($post->incident_news as $item)
 		{
 			if ( ! empty($item))
 			{
@@ -428,7 +428,7 @@ class reports_Core {
 				$news->media_date = date("Y-m-d H:i:s",time());
 				$news->save();
 			}
-		}
+		} */
 
 		// b. Video
 		foreach ($post->incident_video as $item)

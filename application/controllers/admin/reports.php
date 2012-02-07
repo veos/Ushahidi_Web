@@ -341,7 +341,7 @@ class Reports_Controller extends Admin_Controller {
 			'country_id' => '',
 			'country_name' =>'',
 			'incident_category' => array(),
-			'incident_news' => array(),
+			//'incident_news' => array(),
 			'incident_video' => array(),
 			'incident_photo' => array(),
 			'person_first' => '',
