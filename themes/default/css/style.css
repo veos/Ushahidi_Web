@@ -2387,3 +2387,7 @@ div.ci_colorfade {
 div.ci_checkin {
 	border-bottom:1px solid #B3B3B3;
 }
+
+#reportForm .default_field_highlight {
+    background-color:#FFA0CC;
+}

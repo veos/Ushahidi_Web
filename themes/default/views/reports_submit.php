@@ -46,11 +46,11 @@
 						</h4>
 					</div>
 					<?php } ?>
-					<h4><?php echo Kohana::lang('ui_main.reports_title'); ?></h4>
+					<h4><?php echo Kohana::lang('ui_main.reports_title'); ?> <span class="default_field_highlight">(<?php echo Kohana::lang('ui_main.required'); ?>)</span></h4>
 					<?php print form::input('incident_title', $form['incident_title'], ' class="text long"'); ?>
 				</div>
 				<div class="report_row">
-					<h4><?php echo Kohana::lang('ui_main.reports_description'); ?></h4>
+					<h4><?php echo Kohana::lang('ui_main.reports_description'); ?> <span class="default_field_highlight">(<?php echo Kohana::lang('ui_main.required'); ?>)</span></h4>
 					<?php print form::textarea('incident_description', $form['incident_description'], ' rows="10" class="textarea long" ') ?>
 				</div>
 				<div class="report_row" id="datetime_default">
@@ -103,7 +103,7 @@
 					<div style="clear:both; display:block;" id="incident_date_time"></div>
 				</div>
 				<div class="report_row">
-					<h4><?php echo Kohana::lang('ui_main.reports_categories'); ?></h4>
+					<h4><?php echo Kohana::lang('ui_main.reports_categories'); ?> <span class="default_field_highlight">(<?php echo Kohana::lang('ui_main.required'); ?>)</span></h4>
 					<div class="report_category" id="categories">
 					<?php
 						$selected_categories = (!empty($form['incident_category']) AND is_array($form['incident_category']))
@@ -268,7 +268,6 @@
 					?>
 				</div>
 				-->
-				
 				<?php Event::run('ushahidi_action.report_form_after_video_link'); ?>
 
 				<!-- Photo Fields -->
