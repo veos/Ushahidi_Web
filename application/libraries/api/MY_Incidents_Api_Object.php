@@ -86,7 +86,7 @@ class Incidents_Api_Object extends Api_Object_Core {
 				}
 				else
 				{
-					$params = array('i.id = '.$this->check_id_value($this->request['id']));
+					$params = array('i.id = '.$this->check_id_value($this->request['id']), 'all_reports' => true);
 					$this->response_data = $this->_get_incidents($params);
 				}
 			break;
@@ -636,20 +636,18 @@ class Incidents_Api_Object extends Api_Object_Core {
 			if ($this->response_type == 'json')
 			{
 				$json_reports[] = array(
-					"incident" => array(
-						"incidentid" => $item->incident_id,
-						"incidenttitle" => $item->incident_title,
-						"incidentdescription" => $item->incident_description,
-						"incidentdate" => $item->incident_date,
-						"incidentmode" => $item->incident_mode,
-						"incidentactive" => $item->incident_active,
-						"incidentverified" => $item->incident_verified,
-						"locationid" => $item->location_id,
-						"locationname" => $item->location_name,
-						"locationlatitude" => $item->latitude,
-						"locationlongitude" => $item->longitude
-					),  
-					"categories" => $json_report_categories[$item->incident_id], 
+					"incident_id" => $item->incident_id,
+					"incident_title" => $item->incident_title,
+					"incident_description" => $item->incident_description,
+					"incident_date" => $item->incident_date,
+					"incident_mode" => $item->incident_mode,
+					"incident_active" => $item->incident_active,
+					"incident_verified" => $item->incident_verified,
+					"incident_category" => $json_report_categories[$item->incident_id],
+					"location_id" => $item->location_id,
+					"location_name" => $item->location_name,
+					"latitude" => $item->latitude,
+					"longitude" => $item->longitude,
 					"media" => $json_report_media[$item->incident_id],
 					"comments" => $json_report_comments[$item->incident_id]
 				);

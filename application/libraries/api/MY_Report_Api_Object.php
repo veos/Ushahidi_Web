@@ -46,9 +46,6 @@ class Report_Api_Object extends Api_Object_Core {
             'incident_title' => '',
             'incident_description' => '',
             'incident_date' => '',
-            'incident_hour' => '',
-            'incident_minute' => '',
-            'incident_ampm' => '',
             'latitude' => '',
             'longitude' => '',
             'location_name' => '',
@@ -79,24 +76,23 @@ class Report_Api_Object extends Api_Object_Core {
             // Add some rules, the input field, followed by a list of checks, carried out in order
             $post->add_rules('incident_title','required', 'length[3,200]');
             $post->add_rules('incident_description','required');
-            $post->add_rules('incident_date','required','date_mmddyyyy');
-            $post->add_rules('incident_hour','required','between[0,23]');
+            $post->add_rules('incident_date','required'); //,'date_yyyy-mm-dd');
+            //$post->add_rules('incident_hour','required','between[0,23]');
             //$post->add_rules('incident_minute','required','between[0,59]');
 
-            if ($this->api_service->verify_array_index($_POST, 'incident_ampm')) 
-            {
-                if ($_POST['incident_ampm'] != "am" AND  
-                        $_POST['incident_ampm'] != "pm") 
-                {
-                    $post->add_error('incident_ampm','values');
-                }
-            }
+            //if ($this->api_service->verify_array_index($_POST, 'incident_ampm')) 
+            //{
+            //    if ($_POST['incident_ampm'] != "am" AND  
+            //            $_POST['incident_ampm'] != "pm") 
+            //    {
+            //        $post->add_error('incident_ampm','values');
+            //    }
+            //}
 
             $post->add_rules('latitude','required','between[-90,90]');  
             $post->add_rules('longitude','required','between[-180,180]');
             $post->add_rules('location_name','required', 'length[3,200]');
-            $post->add_rules('incident_category','required',
-                    'length[1,100]');
+            $post->add_rules('incident_category','required');
 
             // Validate Personal Information
             if ( ! empty($post->person_first)) 
@@ -132,23 +128,13 @@ class Report_Api_Object extends Api_Object_Core {
                 $incident->incident_title = $post->incident_title;
                 $incident->incident_description = $post->incident_description;
 
-                $incident_date=explode("/",$post->incident_date);
-                /**
-                * where the $_POST['date'] is a value posted by form in
-                * mm/dd/yyyy format
-                */
-                $incident_date=$incident_date[2]."-".$incident_date[0]."-".
-                    $incident_date[1];
-
-                $incident_time = $post->incident_hour . ":" . 
-                    $post->incident_minute . ":00 " . $post->incident_ampm;
-                $incident->incident_date = date( "Y-m-d H:i:s", strtotime($incident_date . " " . $incident_time) );
+                $incident->incident_date = date( "Y-m-d H:i:s", strtotime($post->incident_date) );
                 $incident->incident_dateadd = date("Y-m-d H:i:s",time());
                 $incident->save();
 
                 // SAVE CATEGORIES
                 // Check if data is csv or a single value.
-                $pos = strpos($post->incident_category,",");
+                /*$pos = strpos($post->incident_category,",");
                 
                 if($pos === false)
                 {
@@ -165,7 +151,9 @@ class Report_Api_Object extends Api_Object_Core {
                 else 
                 {
                     $categories = explode(",",$post->incident_category);
-                }
+                }*/
+
+		$categories = $post->incident_category;
 
                 if( ! empty($categories) AND is_array($categories))
                 {
@@ -173,7 +161,7 @@ class Report_Api_Object extends Api_Object_Core {
                     {
                         $incident_category = new Incident_Category_Model();
                         $incident_category->incident_id = $incident->id;
-                        $incident_category->category_id = $item;
+                        $incident_category->category_id = $item['category']['id'];
                         $incident_category->save();
                     }
                 }
@@ -278,6 +266,7 @@ class Report_Api_Object extends Api_Object_Core {
                 // Action::report_edit_api - Edited a Report
                 Event::run('ushahidi_action.report_edit_api', $incident);
 
+		header( 'Location: /api?task=incidents&by=incidentid&id='.$incident->id ) ;
                 return 0; //success
 
             } 
